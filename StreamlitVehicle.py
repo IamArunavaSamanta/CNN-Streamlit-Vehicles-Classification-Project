@@ -131,7 +131,7 @@ if menu =='💻Prediction':
             
             return Predicted_accuracy, predicted_label
 
-    model = joblib.load("models/VehicleModel.pkl")
+    savedModel = joblib.load("models/VehicleModel.pkl")
     
     if uploaded_file is not None:
         st.image(uploaded_file, caption="Uploaded Image", width=300)
@@ -272,4 +272,5 @@ if menu == "⭐Feedback":
             st.success("Thank you for your feedback! 🙏")
         else:
             st.warning("Please select rating! 😊")
+
 
