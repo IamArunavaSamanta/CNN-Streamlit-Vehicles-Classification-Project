@@ -9,7 +9,6 @@ from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import MinMaxScaler, LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, mean_squared_error, confusion_matrix, classification_report
-
 import keras
 from keras.activations import relu, linear
 from keras.layers import Dense, Dropout,Input
@@ -18,74 +17,10 @@ from keras.optimizers import Adam
 from keras.callbacks import EarlyStopping,ReduceLROnPlateau, TensorBoard
 from keras.regularizers import L1, L2
 from keras.layers import Conv2D, MaxPool2D, Flatten
-
-# from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import cv2, os
 import datetime
 import joblib
 
-# import requests
-# from PIL import Image
-# from io import BytesIO
-# ----------------------------------------------------------------------------------
-# For first time
-# cmd
-# cd "C:\Users\ARSAMANT\Project\AI\4 NLP"
-# python -m venv streamlit_env
-# streamlit_env\Scripts\activate
-# pip install streamlit
-# streamlit run streamlitVehicle.py
-
-# Next time
-# cmd
-# cd "C:\Users\ARSAMANT\Project\AI\4 NLP"
-# streamlit_env\Scripts\activate
-# streamlit run app.py
-# -----------------------------------------------------------------------------------------
-#spinner
-# with st.spinner('just wait for reload the page'):
-#     t.sleep(1)
-
-# st.title("Hello Streamlit in Jupyter!")
-# st.image(r"C:\Users\ARSAMANT\OneDrive - Capgemini\Pictures\Screenshots\Car.jpg", width=400)
-# st.header("Machine learning")
-# st.markdown("## Hello")
-# st.subheader("Learner Regression")
-# st.info("Monthly task")
-# st.warning("complete before this month")
-# st.error("wrong password")
-# st.success("Sucessed")
-# st.write("This is a simple Streamlit app running from a Jupyter Notebook.")
-# st.date_input("Enter your DOB: ")
-# st.number_input('Choose a number: ',0,100)
-# name =st.text_input("Enter your name:")
-# if name:
-#     st.success(f"Hello, {name}!")
-# st.checkbox('Login')
-# st.button('Click')
-# st.radio('Pick your gender',['Male', 'Female', 'Others'])
-# st.selectbox('Pick your course',['ML', 'AI', 'DS', 'CA'])
-# st.multiselect('Pick your course',['ML', 'AI', 'DS', 'CA'])
-# st.select_slider('Rating',['Bad', 'Average', 'Good', 'Excellent'])
-# st.slider('Rating',0, 10)
-# st.file_uploader('Upload a file')
-# st.text_area('give your comment here')
-# # Ballons for celebration
-# #st.balloons()
-
-# # Slide bar
-# st.sidebar.title("Login")
-# # Create input fields with keys
-# email = st.sidebar.text_input("Enter the email id", key="email")
-# password = st.sidebar.text_input("Enter the password", type="password", key="password")
-# # Submit button
-# if st.sidebar.button("Submit"):
-#     st.sidebar.success("Submitted!")
-#st.sidebar.markdown("<h3 style='color: red; ont-size: 36px; '>Menu</h3>", unsafe_allow_html=True)
-# ------------------------------------------------------------------------------------------------------------------
-
-
-#---------------------------------------------------------------------------------------------------------------------
 st.set_page_config(
     page_title="Arunava's Streamlit",
     page_icon="𓆩♛𓆪"
@@ -196,7 +131,7 @@ if menu =='💻Prediction':
             
             return Predicted_accuracy, predicted_label
 
-    savedModel = joblib.load(r"C:\Users\ARSAMANT\Project\AI\3 Deep Learning\VehicleModel.pkl")
+    model = joblib.load("models/VehicleModel.pkl")
     
     if uploaded_file is not None:
         st.image(uploaded_file, caption="Uploaded Image", width=300)
@@ -337,3 +272,4 @@ if menu == "⭐Feedback":
             st.success("Thank you for your feedback! 🙏")
         else:
             st.warning("Please select rating! 😊")
+
