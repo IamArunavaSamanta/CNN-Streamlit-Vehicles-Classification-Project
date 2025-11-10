@@ -65,11 +65,13 @@ if menu == "🏠Home":
     CNNs are trained on labeled datasets and can achieve high accuracy in recognizing vehicle types even under varying conditions like lighting, angle, and background.
     """)
         
-    st.markdown(
-        "---🔗Developed by [Arunava Samanta](https://www.linkedin.com/in/arunava-samanta-7439071ba/)"
-        "---🔗Additional Learning [CNN](https://www.geeksforgeeks.org/deep-learning/convolutional-neural-network-cnn-in-machine-learning/)"
-        
-    )
+   st.markdown(
+    """
+    ---  
+    🔗 Developed by [ttps://www.linkedin.com/in/arunava-samanta-7439071ba/  
+    🔗 Additional Learning: https://www.geeksforgeeks.org/deep-learning/convolutional-neural-network-cnn-in-machine-learning/
+    """
+)
 
 #--------------------------------------------------------------------------------------------------------------------
 if menu == "🔐Login Page":
@@ -277,6 +279,7 @@ if menu == "⭐Feedback":
             st.success("Thank you for your feedback! 🙏")
         else:
             st.warning("Please select rating! 😊")
+
 
 
 
