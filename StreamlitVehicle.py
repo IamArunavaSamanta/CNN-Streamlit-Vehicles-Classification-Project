@@ -67,6 +67,8 @@ if menu == "🏠Home":
         
     st.markdown(
         "---🔗Developed by [Arunava Samanta](https://www.linkedin.com/in/arunava-samanta-7439071ba/)"
+        "---🔗Additional Learning [CNN](https://www.geeksforgeeks.org/deep-learning/convolutional-neural-network-cnn-in-machine-learning/)"
+        
     )
 
 #--------------------------------------------------------------------------------------------------------------------
@@ -275,6 +277,7 @@ if menu == "⭐Feedback":
             st.success("Thank you for your feedback! 🙏")
         else:
             st.warning("Please select rating! 😊")
+
 
 
 
