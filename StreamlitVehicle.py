@@ -109,10 +109,10 @@ if menu =='💻Prediction':
             z = self.model.predict(img)
             index = np.argmax(z)
             Predicted_accuracy = z[0][index]*100
-            if Predicted_accuracy>70:
-                predicted_label = self.encoder.inverse_transform([index])
-            else:
+            if Predicted_accuracy<70:
                 predicted_label = str("Unknown")
+            else:
+                predicted_label = self.encoder.inverse_transform([index])
             
             # Bar chart of probabilities
             category_labels = self.encoder.classes_  # Assuming encoder has all class labels
@@ -278,6 +278,7 @@ if menu == "⭐Feedback":
             st.success("Thank you for your feedback! 🙏")
         else:
             st.warning("Please select rating! 😊")
+
 
 
 
