@@ -112,7 +112,7 @@ if menu =='💻Prediction':
             if Predicted_accuracy>65:
                 predicted_label = self.encoder.inverse_transform([index])
             else:
-                predicted_label = 'Unknown'
+                predicted_label = "Unknown"
             
             # Bar chart of probabilities
             category_labels = self.encoder.classes_  # Assuming encoder has all class labels
@@ -278,6 +278,7 @@ if menu == "⭐Feedback":
             st.success("Thank you for your feedback! 🙏")
         else:
             st.warning("Please select rating! 😊")
+
 
 
 
