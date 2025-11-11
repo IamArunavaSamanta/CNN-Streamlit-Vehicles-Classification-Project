@@ -110,7 +110,7 @@ if menu =='💻Prediction':
             index = np.argmax(z)
             Predicted_accuracy = z[0][index]*100
             if Predicted_accuracy>70:
-                predicted_label = self.encoder.inverse_transform([index])
+                predicted_label = self.encoder.inverse_transform([index])[0]
             else:
                 predicted_label = "Unknown"
             
@@ -278,6 +278,7 @@ if menu == "⭐Feedback":
             st.success("Thank you for your feedback! 🙏")
         else:
             st.warning("Please select rating! 😊")
+
 
 
 
