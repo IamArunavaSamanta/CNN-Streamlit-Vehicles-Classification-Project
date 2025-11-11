@@ -112,7 +112,7 @@ if menu =='💻Prediction':
             if Predicted_accuracy<70:
                 predicted_label = str("Unknown")
             else:
-                predicted_label = self.encoder.inverse_transform([index])
+                predicted_label = self.encoder.inverse_transform([index])[0]
             
             # Bar chart of probabilities
             category_labels = self.encoder.classes_  # Assuming encoder has all class labels
@@ -145,7 +145,7 @@ if menu =='💻Prediction':
         # Run prediction only after file is uploaded
         accuracy, label = savedModel.single_img_read(uploaded_file)
     
-        st.markdown(f"### 🤖 Predicted Class: `{label[0]}`")
+        st.markdown(f"### 🤖 Predicted Class: `{label}`")
         st.markdown(f"### 📊 Model Accuracy(%): `{accuracy:.3f}`")
         st.success("✅ Prediction completed!")
     else:
@@ -278,6 +278,7 @@ if menu == "⭐Feedback":
             st.success("Thank you for your feedback! 🙏")
         else:
             st.warning("Please select rating! 😊")
+
 
 
 
