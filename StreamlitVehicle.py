@@ -146,7 +146,7 @@ if menu =='💻Prediction':
         accuracy, label = savedModel.single_img_read(uploaded_file)
     
         st.markdown(f"### 🤖 Predicted Class: `{label}`")
-        st.markdown(f"### 📊 Model Accuracy(%): `{accuracy:.3f}`")
+        st.markdown(f"### 📊 Prediction Accuracy(%): `{accuracy:.3f}`")
         st.success("✅ Prediction completed!")
     else:
         st.info("Please upload a vehicle image to see predictions.")
@@ -166,13 +166,13 @@ if menu =='💻Prediction':
     # Display images
     col1.image(images[0], width=image_width)
     col1.success("🛵 Predicted Class: Bikes")
-    col1.success("📊 Model Accuracy(%): 96.1")
+    col1.success("📊 Prediction Accuracy(%): 96.1")
     col2.image(images[1], width=image_width)
     col2.success("🚗 Predicted Class: Cars")
-    col2.success("📊 Model Accuracy(%): 90.1")
+    col2.success("📊 Prediction Accuracy(%): 90.1")
     col3.image(images[2], width=image_width)
     col3.success("✈️ Predicted Class: Planes")
-    col3.success("📊 Model Accuracy(%): 86.8")
+    col3.success("📊 Prediction Accuracy(%): 86.8")
 
 #---------------------------------------------------------------------------------------------------
 if menu == '📍Fun Quiz':
@@ -278,6 +278,7 @@ if menu == "⭐Feedback":
             st.success("Thank you for your feedback! 🙏")
         else:
             st.warning("Please select rating! 😊")
+
 
 
 
