@@ -1,7 +1,7 @@
 import streamlit as st
 import time as t
 import numpy as np
-import pndas as pd
+import pandas as pd
 import matplotlib.pyplot as plt
 
 import sklearn
@@ -278,6 +278,7 @@ if menu == "⭐Feedback":
             st.success("Thank you for your feedback! 🙏")
         else:
             st.warning("Please select rating! 😊")
+
 
 
 
