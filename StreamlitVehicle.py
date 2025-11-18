@@ -72,6 +72,7 @@ if not st.session_state.logged_in:
                     df_existing = pd.read_excel(file_path, engine='openpyxl')
                     df_combined = pd.concat([df_existing, df_new], ignore_index=True)
                     st.write("Updated Data:", df_combined)
+                    df_combined.to_excel(file_path, index=False, engine='openpyxl')
                 else:
                     df_combined = df_new
                 df_combined.to_excel(file_path, index=False, engine='openpyxl')
@@ -318,6 +319,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
