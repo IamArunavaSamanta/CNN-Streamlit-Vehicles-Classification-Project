@@ -87,10 +87,10 @@ if menu == "🔐Login Page":
     if email and pw:
         if st.button("Submit"):
             if email == 'arunava' and pw == '1234':
-                st.success("Logged in successfully")
+                st.success("Logged in successfully. Now you can use the Prediction Page.")
                 st.session_state.logged_in = True  # ✅ Set login status
             else: 
-                st.error("Wrong password. Try again")
+                st.error("Wrong credentials.... Try again")
     else:
         st.button("Submit", disabled=True)
             
@@ -292,6 +292,7 @@ if menu == "⭐Feedback":
             st.success("Thank you for your feedback! 🙏")
         else:
             st.warning("Please select rating! 😊")
+
 
 
 
