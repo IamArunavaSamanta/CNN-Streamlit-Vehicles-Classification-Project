@@ -72,7 +72,7 @@ if not st.session_state.logged_in:
                 login_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 data = {"Name": [email], "Time": [login_time]}
                 df_new = pd.DataFrame(data) 
-                if os.path.exists(file_path):
+                if os.path.exists(url):
                     df_existing = pd.read_excel(url, engine='openpyxl')
                     df_combined = pd.concat([df_existing, df_new])
                     st.write(df_combined)
@@ -323,6 +323,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
