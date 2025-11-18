@@ -63,7 +63,7 @@ if not st.session_state.logged_in:
                 st.session_state.logged_in = True  # ✅ Set login status
                 st.success("✅Logged in successfully")
                 t.sleep(1)
-                st.run()
+                st.rerun()
             else: 
                 st.error("❌Wrong credentials. Try again...")
     else:
@@ -305,6 +305,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
