@@ -69,14 +69,11 @@ if not st.session_state.logged_in:
                 data = {"Name": [email], "Time": [login_time]}
                 df_new = pd.DataFrame(data)
                 if os.path.exists(file_path):
-                    df_existing = pd.read_excel(file_path)
+                    df_existing = pd.read_excel(file_path, engine='openpyxl')
                     df_combined = pd.concat([df_existing, df_new], ignore_index=True)
-                    st.write("Data to save:", df_new)
-                    st.write("File path:", file_path)
-
                 else:
                     df_combined = df_new
-                df_combined.to_excel(file_path, index=False)
+                df_combined.to_excel(file_path, index=False, engine='openpyxl')
                 st.success("✅Logged in successfully. Now you can use the Prediction Page.")
                 t.sleep(2)
                 st.rerun()
@@ -321,6 +318,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
