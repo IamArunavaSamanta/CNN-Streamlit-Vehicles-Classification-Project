@@ -72,7 +72,7 @@ if not st.session_state.logged_in:
                 
                 # Append and save
                 with pd.ExcelWriter(file_path, engine='openpyxl', mode='a', if_sheet_exists='overlay') as writer:
-                    new_data.to_excel(writer, sheet_name='Sheet1', index=False, header=False, startrow=len(df_existing)+1)
+                    df_new.to_excel(writer, sheet_name='Sheet1', index=False, header=False, startrow=len(df_existing)+1)
 
 
                 st.success("✅Logged in successfully. Now you can use the Prediction Page.")
@@ -317,6 +317,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
