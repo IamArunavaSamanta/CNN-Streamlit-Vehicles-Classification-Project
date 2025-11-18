@@ -71,14 +71,14 @@ if not st.session_state.logged_in:
             #✅Capture login details
                 login_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 data = {"Name": [email], "Time": [login_time]}
-                df_new = pd.DataFrame(data)
-                df_existing = pd.read_excel(url, engine='openpyxl')
-                st.write(df_existing)
-                # Append and save
-                with pd.ExcelWriter(url, engine='openpyxl', mode='a', if_sheet_exists='overlay') as writer:
-                    df_new.to_excel(writer, sheet_name='Sheet1', index=False, header=False, startrow=len(df_existing)+1)
-                st.write(df_new)
-
+                df_new = pd.DataFrame(data) 
+                if os.path.exists(file_path):
+                    df_existing = pd.read_excel(file_path, engine='openpyxl')
+                    df_combined = pd.concat([df_existing, df_new])
+                else:
+                    df_combined = df_new
+            
+                df_combined.to_excel(file_path, engine='openpyxl')
 
                 st.success("✅Logged in successfully. Now you can use the Prediction Page.")
             else: 
@@ -322,6 +322,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
