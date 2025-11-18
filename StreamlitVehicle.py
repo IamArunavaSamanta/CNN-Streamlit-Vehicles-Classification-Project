@@ -26,9 +26,14 @@ st.set_page_config(
     page_icon="𓆩♛𓆪"
 )
 
-# ✅Initialize session state for login:
+# ✅Initialize session state for login
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
+# ✅Initialize session state for User Name
+if "user_name" not in st.session_state:
+    st.session_state.user_name = ""
+# ✅File path for storing login details
+file_path = r"C:\Arunava Docs\Pyspark Resourse\ML\CNN\Vehicles\Users Details (StreamLit).xlsx"
 
 st.write('# :rainbow[Vehicle Classification]🔥')
 st.info("Vehicle classification is a computer vision task that uses machine learning to automatically identify and categorize vehicles\
@@ -57,6 +62,20 @@ if not st.session_state.logged_in:
             if email.lower() in allowed_emails and pw == '1234':
                 st.success("✅Logged in successfully. Now you can use the Prediction Page.")
                 st.session_state.logged_in = True  # ✅ Set login status
+                st.session_state.user_name = email
+                
+                #✅Capture login details
+                login_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                data = {"Name": [email], "Time": [login_time]}
+                if os.path.exists(file_path):
+                    df_existing = pd.read_excel(file_path)
+                    df_new = pd.DataFrame(data)
+                    df_combined = pd.concat([df_existing, df_new], ignore_index=True)
+                    df_combined.to_excel(file_path, index=False)
+                else:
+                    df_new = pd.DataFrame(data)
+                    df_new.to_excel(file_path, index=False)
+
                 st.rerun()
             else: 
                 st.error("❌Wrong credentials. Try again...")
@@ -299,4 +318,5 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
