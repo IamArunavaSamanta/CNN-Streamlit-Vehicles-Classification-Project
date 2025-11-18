@@ -84,9 +84,12 @@ if menu == "🔐Login Page":
     """, unsafe_allow_html=True)
     email = st.text_input("Email Id")
     pw = st.text_input("Password", type='password')
+    # ✅ Allowed usernames
+    allowed_emails = ['arunava.samanta@capgemini.com', 'saptarshi.jana@capgemini.com', 'shubham.g.sharma@capgemini.com']
+
     if email and pw:
         if st.button("Submit"):
-            if email == 'arunava' and pw == '1234':
+            if email.lower() in allowed_emails and pw == '1234':
                 st.success("Logged in successfully. Now you can use the Prediction Page.")
                 st.session_state.logged_in = True  # ✅ Set login status
             else: 
@@ -292,6 +295,7 @@ if menu == "⭐Feedback":
             st.success("Thank you for your feedback! 🙏")
         else:
             st.warning("Please select rating! 😊")
+
 
 
 
