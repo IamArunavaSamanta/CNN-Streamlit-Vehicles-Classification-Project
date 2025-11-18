@@ -75,12 +75,12 @@ if not st.session_state.logged_in:
                         df_new.to_excel(file_path, index=False, engine='openpyxl')
                         st.write("Updated Data:", df_new)
                         st.write("Updated Data:", df_combined)
-                    else:
-                        # ✅ Next time: append to existing file
-                        df_existing = pd.read_excel(file_path, engine='openpyxl')
-                        df_combined = pd.concat([df_existing, df_new], ignore_index=True)
-                        df_combined.to_excel(file_path, index=False, engine='openpyxl')
-                    st.success("✅Logged in successfully. Now you can use the Prediction Page.")
+                else:
+                    # ✅ Next time: append to existing file
+                    df_existing = pd.read_excel(file_path, engine='openpyxl')
+                    df_combined = pd.concat([df_existing, df_new], ignore_index=True)
+                    df_combined.to_excel(file_path, index=False, engine='openpyxl')
+                st.success("✅Logged in successfully. Now you can use the Prediction Page.")
             else: 
                 st.error("❌Wrong credentials. Try again...")
     else:
@@ -322,6 +322,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
