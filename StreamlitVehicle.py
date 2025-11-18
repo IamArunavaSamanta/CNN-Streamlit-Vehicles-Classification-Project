@@ -72,6 +72,7 @@ if not st.session_state.logged_in:
                 ws = wb.active
                 ws.append([email, login_time])
                 wb.save(file_path)
+                st.write("Writable:", os.access(file_path, os.W_OK))
                 st.success("✅Logged in successfully. Now you can use the Prediction Page.")
         
             else: 
@@ -315,6 +316,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
