@@ -69,6 +69,7 @@ if not st.session_state.logged_in:
                 login_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 data = {"Name": [email], "Time": [login_time]}
                 df_new = pd.DataFrame(data)
+                df_existing = pd.read_excel(file_path, engine='openpyxl')
                 
                 # Append and save
                 with pd.ExcelWriter(file_path, engine='openpyxl', mode='a', if_sheet_exists='overlay') as writer:
@@ -317,6 +318,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
