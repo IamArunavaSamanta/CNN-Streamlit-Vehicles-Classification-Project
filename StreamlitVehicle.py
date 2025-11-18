@@ -31,16 +31,10 @@ st.set_page_config(
 # ✅Initialize session state for login
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
-# ✅Initialize session state for User Name
-if "user_name" not in st.session_state:
-    st.session_state.user_name = ""
-# ✅File path for storing login details
-st.write("Exists?", os.path.exists(r"C:\Arunava Docs\Pyspark Resourse\fabric_data_engineer_progress_tracker.xlsx"))
-url = r"C:\Users\ARSAMANT\Downloads\Users Details.csv"
-df = pd.read_csv(url)                              
-st.write(df.head())       
-
-
+# # ✅Initialize session state for User Name
+# if "user_name" not in st.session_state:
+#     st.session_state.user_name = "" 
+    
 st.write('# :rainbow[Vehicle Classification]🔥')
 st.info("Vehicle classification is a computer vision task that uses machine learning to automatically identify and categorize vehicles\
              like cars, trucks,  bikes from images.")  
@@ -67,15 +61,9 @@ if not st.session_state.logged_in:
         if st.button("Submit"):
             if email.lower() in allowed_emails and pw == '1234':
                 st.session_state.logged_in = True  # ✅ Set login status
-                st.session_state.user_name = email
-                
-            #✅Capture login details
-                login_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                wb = load_workbook(url)
-                ws = wb.active
-                ws.append([email, login_time])
-                wb.save(url)
-                st.success("✅Logged in successfully. Now you can use the Prediction Page.")
+                st.success("✅Logged in successfully")
+                t.sleep(1)
+                st.run()
             else: 
                 st.error("❌Wrong credentials. Try again...")
     else:
@@ -317,6 +305,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
