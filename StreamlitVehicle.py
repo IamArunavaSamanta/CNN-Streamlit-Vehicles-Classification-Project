@@ -61,7 +61,7 @@ if not st.session_state.logged_in:
         if st.button("Submit"):
             if email.lower() in allowed_emails and pw == '1234':
                 st.session_state.logged_in = True  # ✅ Set login status
-                st.success("✅Logged in successfully")
+                st.success("✅Logged in successfully. Wait a second...")
                 t.sleep(1)
                 st.rerun()
             else: 
@@ -305,6 +305,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
