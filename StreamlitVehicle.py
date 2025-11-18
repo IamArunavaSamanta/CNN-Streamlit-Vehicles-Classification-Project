@@ -73,7 +73,7 @@ if not st.session_state.logged_in:
                     df_existing = pd.read_excel(file_path)
                     df_combined = pd.concat([df_existing, df_new], ignore_index=True)
                     st.write("Updated Data:", df_existing)
-                    st.write("Updated Data:", df_combined)
+                    st.write("Updated Data:", pd.read_excel(file_path, engine='openpyxl'))
                 df_combined.to_excel(file_path, index=False)
 
                 st.success("✅Logged in successfully. Now you can use the Prediction Page.")
@@ -318,6 +318,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
