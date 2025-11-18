@@ -36,8 +36,8 @@ if "user_name" not in st.session_state:
     st.session_state.user_name = ""
 # ✅File path for storing login details
 url = r"C:\Users\ARSAMANT\Downloads\Users Details.xlsx"
-df = pd.read_excel(url, engine='openpyxl')
-st.write(df.head())
+df = pd.read_excel(url)
+st.write(df)
 
 
 st.write('# :rainbow[Vehicle Classification]🔥')
@@ -316,6 +316,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
