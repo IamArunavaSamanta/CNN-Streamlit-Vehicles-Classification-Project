@@ -68,15 +68,13 @@ if not st.session_state.logged_in:
                 #✅Capture login details
                 login_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 data = {"Name": [email], "Time": [login_time]}
+                df_new = pd.DataFrame(data)
                 if os.path.exists(file_path):
                     df_existing = pd.read_csv(file_path)
-                    df_new = pd.DataFrame(data)
                     df_combined = pd.concat([df_existing, df_new], ignore_index=True)
-                    df_combined.to_csv(file_path, index=False)
                 else:
-                    df_new = pd.DataFrame(data)
-                    df_new.to_csv(file_path, index=False)
-
+                    df_combined = df_new
+                df_combined.to_csv(file_path, index=False)
                 st.rerun()
             else: 
                 st.error("❌Wrong credentials. Try again...")
@@ -319,6 +317,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
