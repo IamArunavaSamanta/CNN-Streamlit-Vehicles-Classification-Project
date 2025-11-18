@@ -68,12 +68,20 @@ if not st.session_state.logged_in:
                 #✅Capture login details
                 login_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 data = {"Name": [email], "Time": [login_time]}
-                wb = load_workbook(file_path)
-                ws = wb.active
-                ws.append([email, login_time])
-                wb.save(file_path)
-                st.write("Writable:", os.access(file_path, os.W_OK))
-                st.success("✅Logged in successfully. Now you can use the Prediction Page.")
+                
+                try:
+                    if not os.path.exists(file_path):
+                        # ✅ First time: create new Excel file
+                        df_new.to_excel(file_path, index=False, engine='openpyxl')
+                    else:
+                        # ✅ Next time: append to existing file
+                        df_existing = pd.read_excel(file_path, engine='openpyxl')
+                        df_combined = pd.concat([df_existing, df_new], ignore_index=True)
+                        df_combined.to_excel(file_path, index=False, engine='openpyxl')
+                
+                    st.success("✅Logged in successfully. Now you can use the Prediction Page.")
+                except Exception as e:
+                    st.error(f"Error saving login details: {e}")
         
             else: 
                 st.error("❌Wrong credentials. Try again...")
@@ -316,6 +324,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
