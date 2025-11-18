@@ -296,12 +296,7 @@ else:
                 st.success("Thank you for your feedback! 🙏")
             else:
                 st.warning("Please select rating! 😊")
-
- #-------------------------------------------------------------------------------------------------------------------------------------   
-    elif menu == "🚪Logout":
+        if st.button("🚪Logout"):
             st.session_state.logged_in = False
-            st.success("✅ You have logged out successfully.")
-
-
-
+            st.rerun()
 
