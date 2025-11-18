@@ -69,13 +69,13 @@ if not st.session_state.logged_in:
                 login_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 data = {"Name": [email], "Time": [login_time]}
                 if os.path.exists(file_path):
-                    df_existing = pd.read_excel(file_path)
+                    df_existing = pd.read_csv(file_path)
                     df_new = pd.DataFrame(data)
                     df_combined = pd.concat([df_existing, df_new], ignore_index=True)
-                    df_combined.to_excel(file_path, index=False)
+                    df_combined.to_csv(file_path, index=False)
                 else:
                     df_new = pd.DataFrame(data)
-                    df_new.to_excel(file_path, index=False)
+                    df_new.to_csv(file_path, index=False)
 
                 st.rerun()
             else: 
@@ -319,6 +319,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
