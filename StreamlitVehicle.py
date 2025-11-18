@@ -21,6 +21,7 @@ import cv2, os
 import datetime
 from datetime import datetime
 import joblib
+from openpyxl import load_workbook
 
 st.set_page_config(
     page_title="Arunava's Streamlit",
@@ -67,15 +68,10 @@ if not st.session_state.logged_in:
                 #✅Capture login details
                 login_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 data = {"Name": [email], "Time": [login_time]}
-                df_new = pd.DataFrame(data)
-                if os.path.exists(file_path):
-                    df_existing = pd.read_excel(file_path, engine='openpyxl')
-                    df_combined = pd.concat([df_existing, df_new], ignore_index=True)
-                    st.write("Updated Data:", df_combined)
-                    df_combined.to_excel(file_path, index=False, engine='openpyxl')
-                else:
-                    df_combined = df_new
-                df_combined.to_excel(file_path, index=False, engine='openpyxl')
+                wb = load_workbook(file_path)
+                ws = wb.active
+                ws.append([email, login_time])
+                wb.save(file_path)
                 st.success("✅Logged in successfully. Now you can use the Prediction Page.")
         
             else: 
@@ -319,6 +315,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
