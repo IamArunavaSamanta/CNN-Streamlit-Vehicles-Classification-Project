@@ -69,12 +69,11 @@ if not st.session_state.logged_in:
                 login_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 data = {"Name": [email], "Time": [login_time]}
                 df_new = pd.DataFrame(data)
-                if os.path.exists(file_path):
-                    df_existing = pd.read_excel(file_path)
-                    df_combined = pd.concat([df_existing, df_new], ignore_index=True)
-                    st.write("Updated Data:", df_existing)
-                    st.write("Updated Data:", pd.read_excel(file_path, engine='openpyxl'))
-                df_combined.to_excel(file_path, index=False)
+                
+                # Append and save
+                with pd.ExcelWriter(file_path, engine='openpyxl', mode='a', if_sheet_exists='overlay') as writer:
+                    new_data.to_excel(writer, sheet_name='Sheet1', index=False, header=False, startrow=len(df_existing)+1)
+
 
                 st.success("✅Logged in successfully. Now you can use the Prediction Page.")
             else: 
@@ -318,6 +317,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
