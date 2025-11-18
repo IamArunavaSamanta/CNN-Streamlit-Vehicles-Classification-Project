@@ -75,6 +75,7 @@ if not st.session_state.logged_in:
                     df_combined = df_new
                 df_combined.to_csv(file_path, index=False)
                 st.success("✅Logged in successfully. Now you can use the Prediction Page.")
+                t.sleep(2)
                 st.rerun()
             else: 
                 st.error("❌Wrong credentials. Try again...")
@@ -317,6 +318,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
