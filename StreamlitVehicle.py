@@ -73,8 +73,8 @@ if not st.session_state.logged_in:
                     if not os.path.exists(file_path):
                         # ✅ First time: create new Excel file
                         df_new.to_excel(file_path, index=False, engine='openpyxl')
-                        print(df_existing)
-                        print(df_combined)
+                        st.write("Updated Data:", df_new)
+                        st.write("Updated Data:", df_combined)
                     else:
                         # ✅ Next time: append to existing file
                         df_existing = pd.read_excel(file_path, engine='openpyxl')
@@ -325,6 +325,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
