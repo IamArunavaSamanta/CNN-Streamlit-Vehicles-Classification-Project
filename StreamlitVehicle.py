@@ -35,7 +35,10 @@ if "logged_in" not in st.session_state:
 if "user_name" not in st.session_state:
     st.session_state.user_name = ""
 # ✅File path for storing login details
-file_path = "https://github.com/IamArunavaSamanta/CNN-Streamlit-Vehicles-Classification-Project/blob/main/Users%20Details.xlsx"
+url = "https://raw.githubusercontent.com/IamArunavaSamanta/CNN-Streamlit-Vehicles-Classification-Project/main/Users%20Details.xlsx
+df = pd.read_excel(url, engine='openpyxl')
+st.write(df.head())
+
 
 st.write('# :rainbow[Vehicle Classification]🔥')
 st.info("Vehicle classification is a computer vision task that uses machine learning to automatically identify and categorize vehicles\
@@ -318,6 +321,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
