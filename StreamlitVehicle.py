@@ -68,7 +68,7 @@ if not st.session_state.logged_in:
                 #✅Capture login details
                 login_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 data = {"Name": [email], "Time": [login_time]}
-                
+                df_new = pd.DataFrame(data)
                 try:
                     if not os.path.exists(file_path):
                         # ✅ First time: create new Excel file
@@ -324,6 +324,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
