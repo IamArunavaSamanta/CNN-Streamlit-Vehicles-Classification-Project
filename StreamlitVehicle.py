@@ -163,9 +163,6 @@ if menu =='💻Prediction':
             st.success("✅ Prediction completed!")
         else:
             st.info("Please upload a vehicle image to see predictions.")
-    
-    else:
-        st.warning("Please login first to access this page.")
 #--------------------------------------------------------------------------------------------------------        
         st.text("🗒 Examples")    
         # Image paths or URLs
@@ -189,6 +186,8 @@ if menu =='💻Prediction':
         col3.image(images[2], width=image_width)
         col3.success("✈️ Predicted Class: Planes")
         col3.success("📊 Prediction Accuracy(%): 86.8")
+    else:
+        st.warning("Please login first to access this page.")
 #--------------------------------------------------------------------------------------------------------------------
 if menu == '📍Fun Quiz':
     st.text("1. Which of the following is a type of Machine Learning?")
@@ -293,6 +292,7 @@ if menu == "⭐Feedback":
             st.success("Thank you for your feedback! 🙏")
         else:
             st.warning("Please select rating! 😊")
+
 
 
 
