@@ -35,8 +35,9 @@ if "logged_in" not in st.session_state:
 if "user_name" not in st.session_state:
     st.session_state.user_name = ""
 # ✅File path for storing login details
-url = r"C:\Users\ARSAMANT\Downloads\Users Details.xlsx"
-
+url = r"C:\Users\ARSAMANT\Downloads\Users Details.csv"
+df = pd.read_csv(url, engine='openpyxl')                              
+st.write(df.head())       
 
 
 st.write('# :rainbow[Vehicle Classification]🔥')
