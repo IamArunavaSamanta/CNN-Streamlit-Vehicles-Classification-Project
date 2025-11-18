@@ -34,7 +34,7 @@ if "logged_in" not in st.session_state:
 if "user_name" not in st.session_state:
     st.session_state.user_name = ""
 # ✅File path for storing login details
-file_path = r"C:\Arunava Docs\Pyspark Resourse\ML\CNN\Vehicles\Users Details (StreamLit).xlsx"
+file_path = r"C:\Arunava Docs\Pyspark Resourse\ML\CNN\Vehicles\Users Details (StreamLit).csv"
 
 st.write('# :rainbow[Vehicle Classification]🔥')
 st.info("Vehicle classification is a computer vision task that uses machine learning to automatically identify and categorize vehicles\
@@ -319,6 +319,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
