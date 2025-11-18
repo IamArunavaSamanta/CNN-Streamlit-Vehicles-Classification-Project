@@ -73,6 +73,7 @@ if not st.session_state.logged_in:
                     df_combined = pd.concat([df_existing, df_new], ignore_index=True)
                 else:
                     df_combined = df_new
+                    st.success("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
                 df_combined.to_excel(file_path, index=False)
                 st.success("✅Logged in successfully. Now you can use the Prediction Page.")
                 t.sleep(2)
@@ -318,6 +319,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
