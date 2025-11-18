@@ -79,7 +79,7 @@ if menu == "🔐Login Page":
     """, unsafe_allow_html=True)
     email = st.text_input("Email Id")
     pw = st.text_input("Password", type='password')
-    if st.button("Submit"):
+    if st.button("Submit", disabled=True):
         if email == 'arunava' and pw == '1234':
             st.success("Logged in successfully")
         else: 
@@ -278,6 +278,7 @@ if menu == "⭐Feedback":
             st.success("Thank you for your feedback! 🙏")
         else:
             st.warning("Please select rating! 😊")
+
 
 
 
