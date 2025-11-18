@@ -71,7 +71,9 @@ if not st.session_state.logged_in:
                 if os.path.exists(file_path):
                     df_existing = pd.read_excel(file_path)
                     df_combined = pd.concat([df_existing, df_new], ignore_index=True)
-                    st.success("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+                    st.write("Data to save:", df_new)
+                    st.write("File path:", file_path)
+
                 else:
                     df_combined = df_new
                 df_combined.to_excel(file_path, index=False)
@@ -319,6 +321,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
