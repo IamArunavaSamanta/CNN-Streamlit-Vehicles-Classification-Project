@@ -57,6 +57,7 @@ if not st.session_state.logged_in:
             if email.lower() in allowed_emails and pw == '1234':
                 st.success("✅Logged in successfully. Now you can use the Prediction Page.")
                 st.session_state.logged_in = True  # ✅ Set login status
+                st.experimental_rerun()
             else: 
                 st.error("❌Wrong credentials. Try again...")
     else:
@@ -300,5 +301,6 @@ else:
     elif menu == "🚪Logout":
             st.session_state.logged_in = False
             st.success("✅ You have logged out successfully.")
+
 
 
