@@ -57,7 +57,7 @@ if not st.session_state.logged_in:
     email = st.text_input("Email Id")
     pw = st.text_input("Password", type='password')
     # ✅ Allowed usernames
-    allowed_emails = ['arunava.samanta@capgemini.com', 'saptarshi.jana@capgemini.com', 'shubham.g.sharma@capgemini.com']
+    allowed_emails = ['arunava.samanta@capgemini.com', 'arunavasamanta001@gmail.com', 'saptarshi.jana@capgemini.com', 'shubham.g.sharma@capgemini.com']
     if email and pw:
         if st.button("Submit"):
             if email.lower() in allowed_emails and pw == '1234':
@@ -317,6 +317,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
