@@ -75,7 +75,7 @@ if not st.session_state.logged_in:
                 df_existing = pd.read_excel(url, engine='openpyxl')
                 df_combined = pd.concat([df_existing, df_new])
             
-                df_combined.to_excel(url, index=False, engine='openpyxl')
+                df_combined.to_csv(url.replace('.xlsx', '.csv'), index=False)
                 st.write("✅ File updated:", pd.read_excel(url, engine='openpyxl'))
                 st.write(df_existing)
                 st.write(df_combined)
@@ -322,6 +322,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
