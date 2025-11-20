@@ -120,10 +120,10 @@ else:
                     
                 def single_img_read(self, file_obj):
                     from PIL import Image
-                    IMAGE_INPUT_SIZE = 200
+                    IMAGE_INPUT_SIZE = 150
                 
                     # Read image from file-like object using PIL, then convert to NumPy array
-                    img = Image.open(file_obj).convert("L")  # Convert to grayscale
+                    img = Image.open(file_obj).convert("RGB")  # Convert to grayscale
                     img = img.resize((IMAGE_INPUT_SIZE, IMAGE_INPUT_SIZE))
                     img = np.array(img)
                     # Reshape for model input
@@ -132,7 +132,7 @@ else:
                     z = self.model.predict(img)
                     index = np.argmax(z)
                     Predicted_accuracy = z[0][index]*100
-                    if Predicted_accuracy<70:
+                    if Predicted_accuracy<60:
                         predicted_label = str("Unknown")
                     else:
                         predicted_label = self.encoder.inverse_transform([index])[0]
@@ -160,7 +160,7 @@ else:
                     
                     return Predicted_accuracy, predicted_label
         
-            savedModel = joblib.load("models/VehicleModel.pkl")
+            savedModel = joblib.load("models/NewVehicleModel.pkl")
             
             if uploaded_file is not None:
                 st.image(uploaded_file, caption="Uploaded Image", width=300)
@@ -305,6 +305,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
