@@ -127,7 +127,7 @@ else:
                     img = img.resize((IMAGE_INPUT_SIZE, IMAGE_INPUT_SIZE))
                     img = np.array(img)
                     # Reshape for model input
-                    img = img.reshape(1, IMAGE_INPUT_SIZE, IMAGE_INPUT_SIZE, 1)
+                    img = img.reshape(1, IMAGE_INPUT_SIZE, IMAGE_INPUT_SIZE, 3)
                     # Predict
                     z = self.model.predict(img)
                     index = np.argmax(z)
@@ -305,6 +305,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
