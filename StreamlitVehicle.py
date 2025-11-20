@@ -184,7 +184,7 @@ else:
             col1, col2, col3 = st.columns(3)
             
             # Set a fixed width (e.g., 200px)
-            image_width = 200
+            image_width = 250
             
             # Display images
             col1.image(images[0], width=image_width)
@@ -305,6 +305,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
