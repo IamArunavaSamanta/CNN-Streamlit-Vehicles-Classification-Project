@@ -178,7 +178,7 @@ else:
             # Image paths or URLs
             images = ["https://github.com/IamArunavaSamanta/CNN-Streamlit-Vehicles-Classification-Project/blob/main/images/Bike.jpg?raw=true", 
                       "https://github.com/IamArunavaSamanta/CNN-Streamlit-Vehicles-Classification-Project/blob/main/images/Car.jpg?raw=true",
-                      "https://github.com/IamArunavaSamanta/CNN-Streamlit-Vehicles-Classification-Project/blob/main/images/Plane.jpg?raw=true"]
+                      "https://github.com/IamArunavaSamanta/CNN-Streamlit-Vehicles-Classification-Project/blob/main/images/Big%20Truck.jpg?raw=true"]
             
             # Create 3 columns
             col1, col2, col3 = st.columns(3)
@@ -189,13 +189,13 @@ else:
             # Display images
             col1.image(images[0], width=image_width)
             col1.success("🛵 Predicted Class: Bikes")
-            col1.success("📊 Prediction Accuracy(%): 96.1")
+            col1.success("📊 Prediction Accuracy(%): 99.1")
             col2.image(images[1], width=image_width)
             col2.success("🚗 Predicted Class: Cars")
-            col2.success("📊 Prediction Accuracy(%): 90.1")
+            col2.success("📊 Prediction Accuracy(%): 98.1")
             col3.image(images[2], width=image_width)
-            col3.success("✈️ Predicted Class: Planes")
-            col3.success("📊 Prediction Accuracy(%): 86.8")
+            col3.success("🚛 Predicted Class: Truck")
+            col3.success("📊 Prediction Accuracy(%): 96.8")
         else:
             st.warning("Please login first to access this page.")
 #--------------------------------------------------------------------------------------------------------------------
@@ -263,7 +263,7 @@ else:
             st.markdown("""
                 <div class='stats-card'>
                     <div class='feature-icon'>🎯</div>
-                    <div class='stats-number'>86.1%</div>
+                    <div class='stats-number'>96.5%</div>
                     <div class='stats-label'>Accuracy</div>
                 </div>
             """, unsafe_allow_html=True)
@@ -280,7 +280,7 @@ else:
             st.markdown("""
                 <div class='stats-card'>
                     <div class='feature-icon'>✉️</div>
-                    <div class='stats-number'>5400+</div>
+                    <div class='stats-number'>6500+</div>
                     <div class='stats-label'>Trained Img</div>
                 </div>
             """, unsafe_allow_html=True)
@@ -305,6 +305,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
