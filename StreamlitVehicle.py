@@ -109,11 +109,9 @@ else:
         st.markdown(
             "---🔗Developed by [Arunava Samanta](https://www.linkedin.com/in/arunava-samanta-7439071ba/)"        
         )
-        st.markdown("""
-        --- 🔗 **Additional Learning**  
-        https://www.geeksforgeeks.org/deep-learning/convolutional-neural-network-cnn-in-machine-learning/  
-        [VGGs://www.geeksforgeeks.org/computer-vision/vgg-net-architecture-explained/
-        """)
+        st.markdown(
+         "---🔗Additional Learning [CNN][VGG-Net](https://www.geeksforgeeks.org/deep-learning/convolutional-neural-network-cnn-in-machine-learning/)(https://www.geeksforgeeks.org/computer-vision/vgg-net-architecture-explained/)"
+        )
             
 #-------------------------------------------------------------------------------------------------------------------
     elif menu =='💻Prediction':
@@ -316,5 +314,6 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
