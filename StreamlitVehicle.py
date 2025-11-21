@@ -110,7 +110,10 @@ else:
             "---🔗Developed by [Arunava Samanta](https://www.linkedin.com/in/arunava-samanta-7439071ba/)"        
         )
         st.markdown(
-         "---🔗Additional Learning [CNN](https://www.geeksforgeeks.org/deep-learning/convolutional-neural-network-cnn-in-machine-learning/)","[VGG-NET](https://www.geeksforgeeks.org/computer-vision/vgg-net-architecture-explained/)"
+         "---🔗Additional Learning [CNN](https://www.geeksforgeeks.org/deep-learning/convolutional-neural-network-cnn-in-machine-learning/)"
+        )
+        st.markdown(
+            "--🔗Additional Learning [VGG-NET](https://www.geeksforgeeks.org/computer-vision/vgg-net-architecture-explained/)"
         )
             
 #-------------------------------------------------------------------------------------------------------------------
@@ -314,6 +317,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
