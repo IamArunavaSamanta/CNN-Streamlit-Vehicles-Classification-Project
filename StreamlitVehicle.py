@@ -97,7 +97,7 @@ else:
         - Autonomous driving
         - Smart parking solutions
 
-         ##### 🚘 Transfer Learning:
+         ##### 📒 Transfer Learning:
         - Transfer learning is a technique where a model trained on a large dataset for one task is reused for a different but related task. Instead of training from scratch, we leverage pre-trained models to save time and improve accuracy, especially when our dataset is small.
         - We used VGGNet (specifically VGG16) as the base model for transfer learning.
         - It is a deep convolutional neural network architecture developed by Visual Geometry Group (VGG) at Oxford.
@@ -110,7 +110,8 @@ else:
             "---🔗Developed by [Arunava Samanta](https://www.linkedin.com/in/arunava-samanta-7439071ba/)"        
         )
         st.markdown(
-         "---🔗Additional Learning [CNN](https://www.geeksforgeeks.org/deep-learning/convolutional-neural-network-cnn-in-machine-learning/)"
+         "---🔗Additional Learning [CNN](https://www.geeksforgeeks.org/deep-learning/convolutional-neural-network-cnn-in-machine-learning/)
+                                    , [VGG-Net](https://www.geeksforgeeks.org/computer-vision/vgg-net-architecture-explained/)"
         )
             
 #-------------------------------------------------------------------------------------------------------------------
@@ -314,3 +315,4 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
