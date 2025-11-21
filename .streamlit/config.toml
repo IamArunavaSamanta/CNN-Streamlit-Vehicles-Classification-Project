@@ -1,7 +1,7 @@
 [theme]
-base = "white"
-primaryColor = "#EEFFFF"                # Button and highlight color
-backgroundColor = "#EE1117"             # Main background
-secondaryBackgroundColor = "#262730"    # Sidebar background
-textColor = "#FAFAFA"                   # Text color
-font = "sans serif"                     # Optional: "monospace" or "serif"
+base = "light"
+primaryColor = "#EEFFFF"
+backgroundColor = "#EE1117"
+secondaryBackgroundColor = "#262730"
+textColor = "#FAFAFA"
+font = "sans serif"
