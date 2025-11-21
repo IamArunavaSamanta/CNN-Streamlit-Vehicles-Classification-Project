@@ -1,4 +1,4 @@
 [theme]
-base = "Dark"
-backgroundColor = "#000000"
-font = "sans serif"
+base = "dark"                # Forces dark theme
+backgroundColor = "#000000"  # Pure black background
+font = "sans serif"          # Font style
