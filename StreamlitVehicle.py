@@ -80,7 +80,10 @@ else:
         st.markdown('''#### :red-background[:orange[CNN]]:orange[, or Convolutional Neural Network,] ''')
         
         st.markdown("""
-        It is a powerful class of deep learning models designed to process and classify visual data. In the context of vehicle image classification, CNNs can learn to identify features such as shapes, edges, and textures that distinguish different types of vehicles.
+        It is a type of deep learning model designed to automatically and adaptively learn features from input images. Convolution is a mathematical operation that combines two functions to produce a third function.
+        It uses small matrices called filters (kernels) that slide across the input, computing dot products to detect specific features such as edges, textures, and shapes.
+        CNNs are trained on labeled datasets and can achieve high accuracy in recognizing vehicle types even under varying conditions like lighting, angle, and background.
+        
         
         ##### 🔍 How CNN Works:
         - **Convolution Layers**: Extract features from the image using filters.
@@ -93,8 +96,14 @@ else:
         - Traffic monitoring systems
         - Autonomous driving
         - Smart parking solutions
+
+         ##### 🚘 Transfer Learning:
+        - Transfer learning is a technique where a model trained on a large dataset for one task is reused for a different but related task. Instead of training from scratch, we leverage pre-trained models to save time and improve accuracy, especially when our dataset is small.
+        - We used VGGNet (specifically VGG16) as the base model for transfer learning.
+        - It is a deep convolutional neural network architecture developed by Visual Geometry Group (VGG) at Oxford.
+        - Pre-trained weights on ImageNet are widely available, making it ideal for transfer learning.
+
         
-        CNNs are trained on labeled datasets and can achieve high accuracy in recognizing vehicle types even under varying conditions like lighting, angle, and background.
         """)
     
         st.markdown(
@@ -305,68 +314,3 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
