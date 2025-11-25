@@ -6,6 +6,3 @@ keras
 opencv-python
 joblib
 openpyxl
-transformers
-torch
-tf-keras
