@@ -318,6 +318,20 @@ else:
             st.session_state.logged_in = False
             st.rerun()
 
+        from transformers import pipeline
+        
+        # Load a free model from Hugging Face
+        qa_pipeline = pipeline("text-generation", model="mistralai/Mistral-7B-Instruct-v0.1")
+        
+        st.title("Free LLM Chatbot")
+        user_input = st.text_input("Ask me anything:")
+        
+        if user_input:
+            response = qa_pipeline(user_input, max_length=200, do_sample=True)
+            st.write("Answer:", response[0]['generated_text'])
+        
+
+
 
 
 
