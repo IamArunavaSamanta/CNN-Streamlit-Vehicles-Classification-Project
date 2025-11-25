@@ -8,3 +8,4 @@ joblib
 openpyxl
 transformers
 torch
+tf-keras
