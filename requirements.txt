@@ -3,7 +3,7 @@ matplotlib
 scikit-learn
 tensorflow
 keras
-opencv-python
 joblib
 openpyxl
-opencv-python
+opencv-python-headless
+
