@@ -7,3 +7,4 @@ opencv-python
 joblib
 openpyxl
 transformers
+torch
