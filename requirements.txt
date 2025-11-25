@@ -6,5 +6,4 @@ keras
 opencv-python
 joblib
 openpyxl
-
-
+transformers
