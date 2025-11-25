@@ -76,7 +76,7 @@ else:
 #--------------------------------------------------------------------------------------------------------------------------
     
     if menu == "🏠Home":
-        st.image("https://github.com/IamArunavaSamanta/CNN-Streamlit-Vehicles-Classification-Project/blob/main/images/Group_Vehicles.png?raw=true", width=500)
+        st.image("https://github.com/IamArunavaSamanta/CNN-Streamlit-Vehicles-Classification-Project/blob/main/images/Group_Vehicles.png?raw=true", use_column_width=True)
         st.markdown('''#### :red-background[:orange[CNN]]:orange[, or Convolutional Neural Network,] ''')
         
         st.markdown("""
@@ -318,6 +318,7 @@ else:
             st.session_state.logged_in = False
             st.rerun()
         
+
 
 
 
