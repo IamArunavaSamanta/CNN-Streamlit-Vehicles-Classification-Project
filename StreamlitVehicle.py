@@ -72,7 +72,11 @@ if not st.session_state.logged_in:
 else:
     # ✅ After login → Show sidebar and pages
     st.sidebar.image("https://github.com/IamArunavaSamanta/CNN-Streamlit-Vehicles-Classification-Project/blob/main/images/logo.png?raw=true", width=100)
-    menu = st.sidebar.radio("", ["🏠Home", "💻Prediction", "📍Fun Quiz", "⭐Feedback"])
+    menu = st.sidebar.radio(
+        "Select an option",  # or any descriptive text
+        ["🏠Home", "💻Prediction", "📍Fun Quiz", "⭐Feedback"],
+        label_visibility="visible"  # or "collapsed" if you want to hide
+    )
 #--------------------------------------------------------------------------------------------------------------------------
     
     if menu == "🏠Home":
@@ -330,6 +334,7 @@ else:
             response = qa_pipeline(user_input, max_length=200, do_sample=True)
             st.write("Answer:", response[0]['generated_text'])
         
+
 
 
 
